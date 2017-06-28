@@ -22,7 +22,7 @@ app.get('/images/favicon.ico', (req,res)=>{
 });
 app.post('/api/root',(req,res)=>{
     update({id:0},req.body,(err,doc)=>{
-        if(doc.length){
+        if(doc.length===0){
             create(req.body,(err)=>{
                 if(err){
                     res.seng(err)
