@@ -11,6 +11,9 @@ let find=(obj,cb)=>(Notice.find(obj,cb));
 let update=(conditions,obj,cb)=>(Notice.update(conditions,obj,cb));
 
 app.listen(8080);
+app.get('/',(err,res)=>{
+    res.sendFile(path.resolve('../dist/index.html'))
+});
 app.post('/api/root',(req,res)=>{
     update({id:0},req.body,(err,doc)=>{
         if(err){
