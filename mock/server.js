@@ -21,9 +21,6 @@ app.get('/images/favicon.ico', (req,res)=>{
     res.sendFile(path.resolve('./images/favicon.ico'));
 });
 app.post('/api/root',(req,res)=>{
-    create({notice:"adfs",id:0,},()=>{
-
-    });
     update({id:0},req.body,(err,doc)=>{
         if(err){
             res.send(err);
