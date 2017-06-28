@@ -14,6 +14,12 @@ app.listen(8080);
 app.get('/',(err,res)=>{
     res.sendFile(path.resolve('../dist/index.html'))
 });
+app.get('/bundle.js', (req,res)=>{
+    res.sendFile(path.resolve('../dist/bundle.js'));
+});
+app.get('/images/favicon.ico', (req,res)=>{
+    res.sendFile(path.resolve('./images/favicon.ico'));
+});
 app.post('/api/root',(req,res)=>{
     update({id:0},req.body,(err,doc)=>{
         if(err){
