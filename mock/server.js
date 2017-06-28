@@ -21,19 +21,14 @@ app.get('/images/favicon.ico', (req,res)=>{
     res.sendFile(path.resolve('./images/favicon.ico'));
 });
 app.post('/api/root',(req,res)=>{
+    create({notice:"adfs",id:0,},()=>{
+
+    });
     update({id:0},req.body,(err,doc)=>{
-        if(doc.length===0){
-            create(req.body,(err)=>{
-                if(err){
-                    res.seng(err)
-                }
-            })
+        if(err){
+            res.send(err);
         }else{
-            if(err){
-                res.send(err);
-            }else{
-                res.send({msg:"ok"})
-            }
+            res.send({msg:"ok"})
         }
     });
 });
